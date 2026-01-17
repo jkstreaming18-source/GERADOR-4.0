@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Imagens Profissional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-[#ffffff] text-slate-800 font-['Inter',sans-serif] min-h-screen overflow-x-hidden;
+            }
+        }
+        @layer components {
+            .container {
+                @apply w-full max-w-[800px] mx-auto p-4 lg:p-8 flex flex-col gap-6 bg-white min-h-screen;
+            }
+            .panel-header {
+                @apply flex items-center justify-between mb-2;
+            }
+            .panel-title {
+                @apply text-3xl font-bold text-slate-900 tracking-tight flex items-center gap-3;
+            }
+            .panel-subtitle {
+                @apply text-slate-400 text-sm;
+            }
+            .section-title {
+                @apply text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2;
+            }
+            .prompt-input {
+                @apply w-full bg-[#f8fafc] border border-slate-200 rounded-2xl p-5 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 min-h-[140px] resize-none transition-all text-lg shadow-sm;
+            }
+            .mode-toggle, .ratio-toggle {
+                @apply flex bg-[#f1f5f9] p-1.5 rounded-2xl gap-1.5 border border-slate-200;
+            }
+            .mode-btn, .ratio-btn {
+                @apply flex-1 py-3 px-4 rounded-xl text-xs font-bold transition-all duration-300 flex flex-col items-center justify-center gap-2;
+            }
+            .mode-btn.active, .ratio-btn.active {
+                @apply bg-blue-600 text-white shadow-lg shadow-blue-600/20 transform scale-[1.02];
+            }
+            .mode-btn:not(.active), .ratio-btn:not(.active) {
+                @apply text-slate-500 hover:text-slate-900 hover:bg-slate-200;
+            }
+            .functions-grid {
+                @apply grid grid-cols-4 gap-3;
+            }
+            .function-card {
+                @apply flex flex-col items-center justify-center p-4 rounded-2xl bg-[#f8fafc] border border-slate-200 cursor-pointer transition-all duration-300 hover:bg-white hover:border-blue-300 hover:shadow-md hover:-translate-y-1;
+            }
+            .function-card.active {
+                @apply border-blue-600 bg-blue-50 text-blue-600;
+            }
+            .function-card svg {
+                @apply w-7 h-7 mb-2;
+            }
+            .function-card div:last-child {
+                @apply text-[10px] font-bold uppercase tracking-tighter text-center;
+            }
+            .upload-area, .upload-area-dual {
+                @apply border-2 border-dashed border-slate-200 rounded-2xl p-8 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-blue-600 hover:bg-blue-50 transition-all duration-300 relative overflow-hidden min-h-[150px];
+            }
+            .image-preview {
+                @apply absolute inset-0 w-full h-full object-cover z-10;
+            }
+            .generate-btn {
+                @apply w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl shadow-blue-600/30 transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed text-lg uppercase tracking-widest;
+            }
+            .visualization-container {
+                @apply mt-8 w-full flex flex-col items-center gap-6;
+            }
+            .image-frame {
+                @apply relative w-full overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] bg-[#fcfcfc] border border-slate-100 flex items-center justify-center transition-all duration-500;
+            }
+            .generated-image {
+                @apply w-full h-full object-contain animate-in fade-in zoom-in-95 duration-700;
+            }
+            .image-actions {
+                @apply absolute bottom-8 flex gap-4 bg-white/90 backdrop-blur-xl p-3 rounded-2xl border border-slate-200 shadow-2xl scale-110;
+            }
+            .action-btn {
+                @apply w-14 h-14 flex items-center justify-center bg-slate-100 hover:bg-blue-600 hover:text-white rounded-xl transition-all duration-300 text-slate-600;
+            }
+            .scrollbar-hide::-webkit-scrollbar { display: none; }
+            .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

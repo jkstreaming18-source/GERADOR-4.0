@@ -1,0 +1,7 @@
+{
+  "name": "GERADOR 4.0",
+  "description": "Um estúdio de geração e edição de imagens de alta performance utilizando os modelos mais recentes da série Gemini 2.5 e 3.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
